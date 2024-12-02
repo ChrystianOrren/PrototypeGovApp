@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ScrollView, Button } from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 
 const data = [
@@ -41,10 +41,16 @@ export default function Inquiry() {
         />
         <Text style={styles.MainText}> Description of Problem or Comment:</Text>
         <TextInput
-        style={styles.Small_TextInput}
+        style={styles.Big_TextInput}
         placeholder="Insert your comment or concern"
         numberOfLines={5}
         multiline></TextInput>
+      </View>
+      <View style = {styles.Bottom_Container}>
+        <Button
+        title = "Submit"
+        color= 'red'
+        />
       </View>
     </ScrollView>
   );
@@ -65,18 +71,31 @@ const styles = StyleSheet.create({
   },
   MainText: {
     fontSize: 15,
-    color: 'red'
+    color: 'red',
+    marginVertical: 10
   },
   Small_TextInput:{
-    height: 50,
+    height: 40,
     borderWidth: 1,
-    color: 'white'
+    color: 'white',
+    backgroundColor: 'grey'
+  },
+  Big_TextInput:{
+    height: 200,
+    borderWidth: 1,
+    color: 'white',
+    backgroundColor: 'grey'
   },
   Dropdown: {
     backgroundColor: 'white',
     height: 50,
     paddingHorizontal:'5%',
-    marginVertical: 20
+  },
+  Bottom_Container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: '5%',
   }
 
 });

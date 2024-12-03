@@ -17,9 +17,9 @@ export default function Inquiry() {
   const[isFocus, setIsFocus] = useState(false);
 
   return (
-    <ScrollView><View style={styles.Top_container}>
-      <Text style={{color:'red', fontSize: 20}}>Inquiry Screen</Text>
-      <Text style={styles.MainText}>Insert City Name strives to make your living experience the best it could be. We would greatly appreciate your 
+    <ScrollView style = {styles.BackgroundView}><View style={styles.Top_container}>
+      <Text style={{color:'white', fontSize: 20, paddingVertical: 10, marginBottom: 10, fontWeight:'bold'}}>Inquiry Screen</Text>
+      <Text style={{color:'white', fontWeight: 'bold'}}>Insert City Name strives to make your living experience the best it could be. We would greatly appreciate your 
         comments and or concerns to our beloved city and we have created this form in order for you to connect with a city employee. Please fill this out to the best
         of your ability and we will get back to you as soon as possible with your Case.   </Text>
     </View>
@@ -36,7 +36,10 @@ export default function Inquiry() {
         <Text style={styles.MainText}> Category:</Text>
         <Dropdown
         style={styles.Dropdown}
-        placeholderStyle={{}}
+        placeholderStyle={{color: 'white'}}
+        placeholder='Select a Category'
+        selectedTextStyle={{color:'white'}}
+        iconColor='white'
         data={data} labelField={'label'} valueField={'value'} value={value} onChange={item => {setValue(item.value);}}
         />
         <Text style={styles.MainText}> Description of Problem or Comment:</Text>
@@ -49,7 +52,7 @@ export default function Inquiry() {
       <View style = {styles.Bottom_Container}>
         <Button
         title = "Submit"
-        color= 'red'
+        color= '#2b87b5'
         />
       </View>
     </ScrollView>
@@ -62,7 +65,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: '5%',
-    paddingVertical: "10%",
+    paddingTop: "10%",
+    paddingBottom: "5%",
+    backgroundColor: '#2b87b5'
   },
   Middle_container: {
     flex: 1,
@@ -71,31 +76,41 @@ const styles = StyleSheet.create({
   },
   MainText: {
     fontSize: 15,
-    color: 'red',
+    color: '#2b87b5',
+    fontWeight: 'bold',
     marginVertical: 10
   },
   Small_TextInput:{
     height: 40,
     borderWidth: 1,
-    color: 'white',
-    backgroundColor: 'grey'
+    color: '#2b87b5',
+    backgroundColor: 'white',
+    paddingHorizontal: 10
   },
   Big_TextInput:{
     height: 200,
     borderWidth: 1,
-    color: 'white',
-    backgroundColor: 'grey'
+    color: '#2b87b5',
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    borderColor: '2b87b5',
   },
   Dropdown: {
-    backgroundColor: 'white',
+    backgroundColor: '#2b87b5',
     height: 50,
     paddingHorizontal:'5%',
+    color: '#2b87b5',
+    textDecorationColor: 'white'
   },
   Bottom_Container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: '5%',
+    marginTop: '5%'
+  },
+  BackgroundView: {
+    backgroundColor: 'white'
   }
 
 });

@@ -9,13 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendar, faHome, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function TabLayout() {
-  let iconColor = 'red'
+  let iconColor = '#2b87b5'
 
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'red',
+        tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
         tabBarButton: HapticTab,

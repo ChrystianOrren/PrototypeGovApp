@@ -19,7 +19,7 @@ export default function Inquiry() {
   return (
     <ScrollView style = {styles.BackgroundView}><View style={styles.Top_container}>
       <Text style={{color:'white', fontSize: 20, paddingVertical: 10, marginBottom: 10, fontWeight:'bold'}}>Inquiry Screen</Text>
-      <Text style={{color:'white', fontWeight: 'bold'}}>Insert City Name strives to make your living experience the best it could be. We would greatly appreciate your 
+      <Text style={{color:'white', fontWeight: 'bold'}}>      Insert City Name strives to make your living experience the best it could be. We would greatly appreciate your 
         comments and or concerns to our beloved city and we have created this form in order for you to connect with a city employee. Please fill this out to the best
         of your ability and we will get back to you as soon as possible with your Case.   </Text>
     </View>
@@ -27,11 +27,14 @@ export default function Inquiry() {
       <Text style={styles.MainText}> Name:</Text>
       <TextInput
         style={styles.Small_TextInput}
-        placeholder="Insert your first and last name"></TextInput>
+        placeholder="Insert your first and last name"
+        placeholderTextColor={'#2b87b5'}></TextInput>
+        
       <Text style={styles.MainText}> Email:</Text>
       <TextInput
         style={styles.Small_TextInput}
-        placeholder="Insert your email adress"></TextInput>
+        placeholder="Insert your email address"
+        placeholderTextColor={'#2b87b5'}></TextInput>
 
         <Text style={styles.MainText}> Category:</Text>
         <Dropdown
@@ -47,7 +50,8 @@ export default function Inquiry() {
         style={styles.Big_TextInput}
         placeholder="Insert your comment or concern"
         numberOfLines={5}
-        multiline></TextInput>
+        multiline
+        placeholderTextColor={'#2b87b5'}></TextInput>
       </View>
       <View style = {styles.Bottom_Container}>
         <Button

@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: '5%',
     paddingTop: "10%",
     paddingBottom: "5%",
-    backgroundColor: '#2b87b5'
+    backgroundColor: '#2b87b5',
   },
   Middle_container: {
     flex: 1,
@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#2b87b5',
     fontWeight: 'bold',
-    marginVertical: 10
+    marginVertical: 10,
+    fontFamily: 'Poppins-Regular'
   },
   Small_TextInput:{
     height: 40,

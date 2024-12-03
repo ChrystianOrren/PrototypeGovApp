@@ -11,7 +11,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/ABeeZee-Regular.otf'),
+    SpaceMono: require('../assets/fonts/Poppins-Regular.otf'),
   });
 
   useEffect(() => {

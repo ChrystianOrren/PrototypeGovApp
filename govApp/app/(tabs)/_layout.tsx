@@ -6,7 +6,7 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 
 // Import Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faCalendar, faHome, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faHome, faPencilAlt, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 export default function TabLayout() {
   let iconColor = '#2b87b5'
@@ -43,6 +43,15 @@ export default function TabLayout() {
           title: 'Home',
           tabBarIcon: ({ color }) => (
             <FontAwesomeIcon icon={faHome} size={28} color={iconColor} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="News"
+        options={{
+          title: 'News',
+          tabBarIcon: ({ color }) => (
+            <FontAwesomeIcon icon={faNewspaper} size={28} color={iconColor} />
           ),
         }}
       />

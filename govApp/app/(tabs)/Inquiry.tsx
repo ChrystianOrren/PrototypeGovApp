@@ -34,16 +34,17 @@ export default function Inquiry() {
       <TextInput
         style={styles.Small_TextInput}
         placeholder="Insert your email address"
-        placeholderTextColor={'#2b87b5'}></TextInput>
+        placeholderTextColor={'#2b87b5'}>
+        </TextInput>
 
         <Text style={styles.MainText}> Category:</Text>
         <Dropdown
-        style={styles.Dropdown}
-        placeholderStyle={{color: 'white'}}
-        placeholder='Select a Category'
-        selectedTextStyle={{color:'white'}}
-        iconColor='white'
-        data={data} labelField={'label'} valueField={'value'} value={value} onChange={item => {setValue(item.value);}}
+            style={styles.Dropdown}
+            placeholderStyle={{color: 'white'}}
+            placeholder='Select a Category'
+            selectedTextStyle={{color:'white'}}
+            iconColor='white'
+            data={data} labelField={'label'} valueField={'value'} value={value} onChange={item => {setValue(item.value);}}
         />
         <Text style={styles.MainText}> Description of Problem or Comment:</Text>
         <TextInput

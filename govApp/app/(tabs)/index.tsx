@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import axios from 'axios';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const WEATHER_API_KEY = 'd1d70a1657a24462bc763faf9d12f839';
 const CITY_NAME = 'Palm Coast';
+const pcYellow = '#ffc323'
 
 const celsiusToFarenheit = (temp: number) => {
   let fahrenheit = Math.round((temp * (9/5)) + 32)
@@ -25,7 +26,6 @@ export default function index() {
   const [weather, setWeather] = useState(null)
 
   useEffect(() => {
-    // Fetch weather data
     const fetchWeather = async () => {
       try {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&units=metric&appid=${WEATHER_API_KEY}`)
@@ -60,27 +60,39 @@ export default function index() {
           />
         </ImageBackground>
       </View>
-      <View style={styles.body}>
+      <ScrollView contentContainerStyle={styles.body}>
         <Text style={styles.welcomeText}>
           Welcome to the Palm Coast App! Stay informed about city events and news, and easily share your comments or concerns with city staff.
         </Text>
 
         <Text style={styles.weatherTitle}>Today's Weather</Text>
         <View style={styles.weather}>
-            { (weather != null) ?
-              <>
-                <View style={styles.weatherItems}>
-                  <Text>{celsiusToFarenheit(weather.main.temp)}°f</Text>
-                  <Text>{weather.main.humidity}%</Text>
+          {weather != null ? (
+            <>
+              <View style={styles.weatherItems}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '20%', alignItems: 'center'}}>
+                  <FontAwesome name="thermometer" size={30} color="#ffc323" />
+                  <Text style={styles.weatherInfoText}>{celsiusToFarenheit(weather.main.temp)}°f</Text>
                 </View>
-                <View style={styles.weatherItems}>
-                  <Text>Sunrise: {convertSunrise(weather.sys.sunrise, weather.timezone)}</Text>
-                  <Text>Sunset: {convertSunrise(weather.sys.sunset, weather.timezone)}</Text>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '20%', alignItems: 'center'}}>
+                  <FontAwesome name="tint" size={30} color="#ffc323" />
+                  <Text style={styles.weatherInfoText}>{weather.main.humidity}%</Text>
                 </View>
-              </>
-            : 
-              <></>
-            }
+              </View>
+              <View style={styles.weatherItems}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '35%', alignItems: 'center'}}>
+                  <FontAwesome name="sun-o" size={30} color="#ffc323" />
+                  <Text style={styles.weatherInfoText}> {convertSunrise(weather.sys.sunrise, weather.timezone)}</Text>
+                </View>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '35%', alignItems: 'center'}}>
+                  <FontAwesome name="moon-o" size={30} color="#ffc323" />
+                  <Text style={styles.weatherInfoText}> {convertSunrise(weather.sys.sunset, weather.timezone)}</Text>
+                </View>
+              </View>
+            </>
+          ) : (
+            <></>
+          )}
         </View>
 
         <View style={styles.contact}>
@@ -108,7 +120,7 @@ export default function index() {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -118,7 +130,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flex: 0.35,
+    height: '30%',
     width: '100%',
   },
   imageBackground: {
@@ -138,9 +150,9 @@ const styles = StyleSheet.create({
     height: '70%',
   },
   body: {
-    flex: 1,
     padding: 20,
     backgroundColor: 'white',
+    flexGrow: 1,
   },
   welcomeText: {
     fontSize: 24,
@@ -153,23 +165,42 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   weather: {
-    flex: 0.8,
     backgroundColor: '#f5f5f5',
-    borderRadius: 10,
-    padding: 15,
+    borderRadius: 15,
+    paddingVertical: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
+    marginBottom: 20,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   weatherTitle: {
     color: '#2b87b5',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 24,
+    marginBottom: 20,
+  },
+  weatherItems: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginBottom: 20,
+  },
+  weatherItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  weatherText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginLeft: 10,
   },
   contact: {
-    flex: 1,
     marginTop: 10,
   },
   contactText: {
@@ -192,6 +223,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: 10,
   },
   contactName: {
     fontSize: 16,
@@ -206,9 +238,8 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'right',
   },
-  weatherItems:{
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+  weatherInfoText: {
+    fontSize: 20
   }
 });
+

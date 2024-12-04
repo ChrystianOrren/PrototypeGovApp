@@ -4,7 +4,7 @@ import { WebView } from 'react-native-webview';
 
 export default function News() {
   return (
-    <View style={{ flex: 1}}>
+    <View style={{ flex: 1, marginTop: '15%'}}>
       <WebView source={{uri: "https://flaglerlive.com/category/palm-coast/palm-coast-city-council-palm-coast/"}}/>
     </View>
   );

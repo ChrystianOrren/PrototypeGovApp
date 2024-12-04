@@ -5,8 +5,21 @@ import { WebView } from 'react-native-webview';
 
 export default function index() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{color:'red'}}>Home Screen</Text>
+    <View style={styles.container}>
+      <ImageBackground 
+        style={styles.header}
+        source={require('../../assets/images/towncenter.jpg')}
+      >
+        <Image
+          source={require('../../assets/images/city-logo.png')}
+          style={styles.image}
+          resizeMode="contain"
+        />
+      </ImageBackground>
+      {/* <ScrollView contentContainerStyle={styles.body}>
+        <Text>Body</Text>
+      </ScrollView> */}
+      <WebView source={{uri: "https://flaglerlive.com/category/palm-coast/palm-coast-city-council-palm-coast/"}}/>
     </View>
   );
 }
